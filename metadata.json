@@ -1,0 +1,8 @@
+
+{
+  "name": "自炊でコミットくん (COMMIT POT)",
+  "description": "筋トレ初心者のための「鍋」特化型自炊支援アプリのランディングページ。PFC計算から買い物リスト、仕込みガイドまで提供します。",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
