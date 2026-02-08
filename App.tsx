@@ -74,6 +74,7 @@ const QuickCalculator = ({ t }: { t: any }) => {
   const handleStartApp = () => {
     window.location.href = 'https://commit-pod.vercel.app/';
   };
+  const displayNumber = (value: number) => (value === 0 ? '' : value);
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden group">
@@ -95,8 +96,13 @@ const QuickCalculator = ({ t }: { t: any }) => {
                 <label className="text-[10px] text-slate-500 mb-1 block uppercase tracking-widest font-bold">{t.calc.height}</label>
                 <input 
                   type="number" 
-                  value={profile.height} 
-                  onChange={e => setProfile({...profile, height: Number(e.target.value)})}
+                  value={displayNumber(profile.height)}
+                  onChange={e =>
+                    setProfile({
+                      ...profile,
+                      height: e.target.value === '' ? 0 : Number(e.target.value),
+                    })
+                  }
                   className="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
@@ -104,8 +110,13 @@ const QuickCalculator = ({ t }: { t: any }) => {
                 <label className="text-[10px] text-slate-500 mb-1 block uppercase tracking-widest font-bold">{t.calc.weight}</label>
                 <input 
                   type="number" 
-                  value={profile.weight} 
-                  onChange={e => setProfile({...profile, weight: Number(e.target.value)})}
+                  value={displayNumber(profile.weight)}
+                  onChange={e =>
+                    setProfile({
+                      ...profile,
+                      weight: e.target.value === '' ? 0 : Number(e.target.value),
+                    })
+                  }
                   className="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
