@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { 
   Flame, 
   Target, 
@@ -533,6 +534,7 @@ const App: React.FC = () => {
         </div>
       </Modal>
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 };
