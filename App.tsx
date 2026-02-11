@@ -23,6 +23,7 @@ import {
 import { UserProfile, CalculatedResults } from './types';
 import { calculateResults } from './utils';
 import { translations, Language } from './translations';
+import heroBanner from './assets/Professional_feature_graphic_banner_for_a_fitness_-1770782635461.jpg';
 
 // --- Components ---
 
@@ -309,6 +310,15 @@ const App: React.FC = () => {
                 {t.hero.title}<br />
                 <span className="gradient-text">{t.hero.titleAccent}</span>
               </h1>
+              <img
+                src={heroBanner}
+                alt="Commit Pot preview"
+                width={1200}
+                height={669}
+                loading="eager"
+                decoding="async"
+                className="w-full max-w-xl mx-auto lg:mx-0 rounded-2xl border border-slate-800/60 shadow-2xl shadow-orange-500/10 mb-6"
+              />
               <p className="text-lg text-slate-400 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                 {t.hero.subtitle}
               </p>
