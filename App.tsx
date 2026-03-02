@@ -23,6 +23,14 @@ import {
 import { UserProfile, CalculatedResults } from './types';
 import { calculateResults } from './utils';
 import { translations, Language } from './translations';
+import {
+  getWebAppUrl,
+  trackCalcCompleted,
+  trackCalcStepAdvanced,
+  trackHowToOpened,
+  trackLanguageChanged,
+  trackStartAppClicked,
+} from './analytics';
 import heroBanner from './assets/Professional_feature_graphic_banner_for_a_fitness_-1770782635461.jpg';
 
 // --- Components ---
@@ -57,7 +65,7 @@ const FeatureCard = ({ icon: Icon, title, description }: { icon: any, title: str
   </div>
 );
 
-const QuickCalculator = ({ t }: { t: any }) => {
+const QuickCalculator = ({ t, lang }: { t: any, lang: Language }) => {
   const [step, setStep] = useState(0);
   const [profile, setProfile] = useState<UserProfile>({
     height: 175,
@@ -71,11 +79,13 @@ const QuickCalculator = ({ t }: { t: any }) => {
 
   const handleCalculate = () => {
     setResults(calculateResults(profile));
+    trackCalcCompleted(lang, profile.goal);
     setStep(2);
   };
 
   const handleStartApp = () => {
-    window.location.href = 'https://commit-pod.vercel.app/';
+    trackStartAppClicked(lang, 'quick_calculator');
+    window.location.href = getWebAppUrl();
   };
   const displayNumber = (value: number) => (value === 0 ? '' : value);
 
@@ -125,7 +135,10 @@ const QuickCalculator = ({ t }: { t: any }) => {
               </div>
             </div>
             <button 
-              onClick={() => setStep(1)}
+              onClick={() => {
+                trackCalcStepAdvanced(lang);
+                setStep(1);
+              }}
               className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange-500/20"
             >
               {t.calc.next} <ChevronRight size={20} />
@@ -261,8 +274,19 @@ const App: React.FC = () => {
 
   const t = translations[lang];
 
-  const handleStartApp = () => {
-    window.location.href = 'https://commit-pod.vercel.app/';
+  const openHowToModal = (source: 'header' | 'hero') => {
+    trackHowToOpened(lang, source);
+    setIsHowToModalOpen(true);
+  };
+
+  const handleLanguageChange = (nextLang: Language) => {
+    trackLanguageChanged(lang, nextLang);
+    setLang(nextLang);
+  };
+
+  const handleStartApp = (source: Parameters<typeof trackStartAppClicked>[1]) => {
+    trackStartAppClicked(lang, source);
+    window.location.href = getWebAppUrl();
   };
 
   return (
@@ -278,14 +302,14 @@ const App: React.FC = () => {
           </div>
           <div className="flex items-center gap-4">
             <button 
-              onClick={() => setIsHowToModalOpen(true)}
+              onClick={() => openHowToModal('header')}
               className="text-slate-400 hover:text-white text-xs font-bold transition-colors hidden sm:block"
             >
               {t.nav.howTo}
             </button>
-            <LanguageSwitcher current={lang} onChange={setLang} />
+            <LanguageSwitcher current={lang} onChange={handleLanguageChange} />
             <button 
-              onClick={handleStartApp}
+              onClick={() => handleStartApp('header')}
               className="bg-orange-500 hover:bg-orange-600 text-white text-xs font-black px-5 py-2.5 rounded-full transition-all shadow-lg shadow-orange-500/20"
             >
               {t.nav.startApp}
@@ -325,13 +349,13 @@ const App: React.FC = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button 
-                  onClick={handleStartApp}
+                  onClick={() => handleStartApp('hero')}
                   className="bg-orange-500 hover:bg-orange-600 text-white font-black px-10 py-5 rounded-2xl flex items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-2xl shadow-orange-500/30 group"
                 >
                   <Flame size={24} className="group-hover:animate-bounce" /> {t.hero.ctaStart}
                 </button>
                 <button 
-                  onClick={() => setIsHowToModalOpen(true)}
+                  onClick={() => openHowToModal('hero')}
                   className="bg-slate-800 hover:bg-slate-700 text-white font-black px-10 py-5 rounded-2xl flex items-center justify-center gap-3 border border-slate-700 transition-all hover:border-slate-500"
                 >
                   {t.hero.ctaHowTo}
@@ -340,7 +364,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="relative">
-              <QuickCalculator t={t} />
+              <QuickCalculator t={t} lang={lang} />
               <div className="absolute -bottom-6 -left-6 bg-slate-900 border border-slate-800 p-4 rounded-2xl shadow-2xl hidden md:flex items-center gap-3 animate-in fade-in slide-in-from-left duration-1000 delay-500">
                 <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-500">
                   <CheckCircle2 size={24} />
@@ -409,7 +433,7 @@ const App: React.FC = () => {
             
             <div className="flex flex-col items-center gap-6">
               <button 
-                onClick={handleStartApp}
+                onClick={() => handleStartApp('store_section')}
                 className="w-full max-w-sm bg-white text-slate-900 font-black py-5 rounded-2xl text-xl flex items-center justify-center gap-3 hover:bg-orange-500 hover:text-white transition-all shadow-2xl"
               >
                 {t.calc.pwaCta}
@@ -477,7 +501,7 @@ const App: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm font-bold text-center md:text-right">
             <div className="space-y-4">
               <h4 className="text-white text-xs uppercase tracking-widest opacity-50">App</h4>
-              <p><a href="https://commit-pod.vercel.app/" className="text-slate-400 hover:text-white transition-colors">{t.nav.startApp}</a></p>
+              <p><a href={getWebAppUrl()} onClick={() => trackStartAppClicked(lang, 'footer')} className="text-slate-400 hover:text-white transition-colors">{t.nav.startApp}</a></p>
               <p><a href="#" className="text-slate-400 hover:text-white transition-colors">{t.nav.howTo}</a></p>
             </div>
             <div className="space-y-4">
@@ -503,7 +527,7 @@ const App: React.FC = () => {
       {/* Floating CTA for Mobile */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full px-6 md:hidden z-[90]">
         <button 
-          onClick={handleStartApp}
+          onClick={() => handleStartApp('mobile_floating_cta')}
           className="w-full bg-orange-500 text-white font-black py-5 rounded-2xl shadow-[0_10px_30px_rgba(249,115,22,0.4)] flex items-center justify-center gap-2 text-lg active:scale-95 transition-transform"
         >
           {t.calc.pwaCta} <ArrowRight size={20} />
@@ -536,7 +560,10 @@ const App: React.FC = () => {
           ))}
           
           <button 
-            onClick={() => { setIsHowToModalOpen(false); handleStartApp(); }}
+            onClick={() => {
+              setIsHowToModalOpen(false);
+              handleStartApp('hero');
+            }}
             className="w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-xl mt-4 transition-colors shadow-lg shadow-orange-500/20"
           >
             {t.calc.pwaCta}

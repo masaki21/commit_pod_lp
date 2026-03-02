@@ -1,7 +1,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { PostHogProvider } from '@posthog/react';
 import App from './App';
+import { hasPostHogKey, posthogConfig } from './analytics';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -11,6 +13,15 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    {hasPostHogKey ? (
+      <PostHogProvider
+        apiKey={posthogConfig.apiKey}
+        options={posthogConfig.options}
+      >
+        <App />
+      </PostHogProvider>
+    ) : (
+      <App />
+    )}
   </React.StrictMode>
 );
