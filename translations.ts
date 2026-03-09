@@ -5,12 +5,14 @@ export const translations: Record<Language, any> = {
   ja: {
     nav: { howTo: '使い方', startApp: 'Web版を起動' },
     hero: {
-      pwaBadge: 'PWA対応：ブラウザで即体験',
-      title: '筋トレ飯は、',
-      titleAccent: '「鍋」一択でした。',
-      subtitle: 'インスタで人気の「コミット鍋」がついにアプリ化。計算・買い物・調理をすべてスマホひとつで完結。',
+      pwaBadge: '',
+      title: '「筋トレは頑張れる。',
+      titleAccent: 'でも、食事管理が一番難しい…」',
+      subtitle: `そんな悩みを持つすべてのトレーニーへ。
+Commit PotはAIを活用した食事サポートアプリです。`,
       ctaStart: '今すぐ無料で開始',
-      ctaHowTo: '使い方を見る'
+      ctaHowTo: '使い方を見る',
+      ctaWeb: 'Webブラウザ版をご利用の方はこちら'
     },
     calc: {
       title: 'PFC Quick Calculator',
@@ -68,12 +70,14 @@ export const translations: Record<Language, any> = {
   en: {
     nav: { howTo: 'How to use', startApp: 'Launch App' },
     hero: {
-      pwaBadge: 'PWA Ready: Experience instantly in browser',
-      title: 'The ultimate fitness meal is',
-      titleAccent: 'The "Hot Pot".',
-      subtitle: 'The Instagram-famous "Commit Pot" is now an app. Calculation, shopping, and cooking all in your smartphone.',
+      pwaBadge: '',
+      title: 'You can keep up with your training.',
+      titleAccent: 'But diet management is the hardest part...',
+      subtitle: `To all trainees with such struggles.
+Commit Pot is an AI-powered meal support app.`,
       ctaStart: 'Start for free now',
-      ctaHowTo: 'See how it works'
+      ctaHowTo: 'See how it works',
+      ctaWeb: 'Click here for the Web Browser version'
     },
     calc: {
       title: 'PFC Quick Calculator',
@@ -131,12 +135,14 @@ export const translations: Record<Language, any> = {
   id: {
     nav: { howTo: 'Cara pakai', startApp: 'Buka Aplikasi' },
     hero: {
-      pwaBadge: 'Siap PWA: Alami langsung di browser',
-      title: 'Makanan fitness terbaik adalah',
-      titleAccent: '"Hot Pot".',
-      subtitle: '"Commit Pot" yang populer di Instagram kini hadir sebagai aplikasi. Perhitungan, belanja, dan memasak semua di smartphone Anda.',
+      pwaBadge: '',
+      title: 'Anda bisa disiplin latihan.',
+      titleAccent: 'Tapi mengatur pola makan adalah bagian tersulit...',
+      subtitle: `Untuk semua trainee dengan perjuangan seperti itu.
+Commit Pot adalah aplikasi dukungan makanan berbasis AI.`,
       ctaStart: 'Mulai gratis sekarang',
-      ctaHowTo: 'Lihat cara kerjanya'
+      ctaHowTo: 'Lihat cara kerjanya',
+      ctaWeb: 'Klik di sini untuk versi Web Browser'
     },
     calc: {
       title: 'PFC Quick Calculator',
@@ -194,12 +200,14 @@ export const translations: Record<Language, any> = {
   vi: {
     nav: { howTo: 'Cách sử dụng', startApp: 'Mở ứng dụng' },
     hero: {
-      pwaBadge: 'Hỗ trợ PWA: Trải nghiệm ngay trên trình duyệt',
-      title: 'Bữa ăn thể hình tối thượng là',
-      titleAccent: '"Lẩu (Hot Pot)".',
-      subtitle: '"Commit Pot" nổi tiếng trên Instagram nay đã có ứng dụng. Tính toán, đi chợ và nấu nướng tất cả trên smartphone.',
+      pwaBadge: '',
+      title: 'Bạn có thể chăm chỉ tập luyện.',
+      titleAccent: 'Nhưng quản lý ăn uống mới là phần khó nhất...',
+      subtitle: `Gửi đến tất cả các trainee đang gặp khó khăn.
+Commit Pot là ứng dụng hỗ trợ bữa ăn bằng AI.`,
       ctaStart: 'Bắt đầu miễn phí ngay',
-      ctaHowTo: 'Xem cách hoạt động'
+      ctaHowTo: 'Xem cách hoạt động',
+      ctaWeb: 'Nhấn vào đây để xem phiên bản Trình duyệt Web'
     },
     calc: {
       title: 'Tính PFC nhanh',
@@ -257,12 +265,14 @@ export const translations: Record<Language, any> = {
   it: {
     nav: { howTo: 'Come funziona', startApp: 'Avvia App' },
     hero: {
-      pwaBadge: 'Pronto per PWA: Esperienza istantanea nel browser',
-      title: 'Il pasto fitness definitivo è',
-      titleAccent: 'Il "Hot Pot".',
-      subtitle: 'Il famoso "Commit Pot" di Instagram è ora un app. Calcolo, spesa e cucina tutto sul tuo smartphone.',
+      pwaBadge: '',
+      title: `Puoi impegnarti nell'allenamento.`,
+      titleAccent: `Ma la gestione della dieta è la parte più difficile...`,
+      subtitle: `A tutti i trainee con queste difficoltà.
+Commit Pot è un'app di supporto alimentare basata sull'intelligenza artificiale.`,
       ctaStart: 'Inizia gratis ora',
-      ctaHowTo: 'Scopri come funziona'
+      ctaHowTo: 'Scopri come funziona',
+      ctaWeb: 'Clicca qui per la versione Browser Web'
     },
     calc: {
       title: 'Calcolatore PFC Rapido',
@@ -320,12 +330,14 @@ export const translations: Record<Language, any> = {
   es: {
     nav: { howTo: 'Cómo usar', startApp: 'Abrir App' },
     hero: {
-      pwaBadge: 'Listo para PWA: Experiencia instantánea en el navegador',
-      title: 'La comida fitness definitiva es',
-      titleAccent: 'El "Hot Pot".',
-      subtitle: 'El famoso "Commit Pot" de Instagram ahora es una aplicación. Cálculo, compras y cocina, todo en tu smartphone.',
+      pwaBadge: '',
+      title: 'Puedes ser constante con el entrenamiento.',
+      titleAccent: 'Pero el control de la dieta es lo más difícil...',
+      subtitle: `Para todos los que tienen esos problemas.
+Commit Pot es una app de apoyo alimenticio con IA.`,
       ctaStart: 'Empieza gratis ahora',
-      ctaHowTo: 'Ver cómo funciona'
+      ctaHowTo: 'Ver cómo funciona',
+      ctaWeb: 'Haga clic aquí para la versión de navegador web'
     },
     calc: {
       title: 'Calculadora PFC Rápida',
@@ -383,12 +395,14 @@ export const translations: Record<Language, any> = {
   pt: {
     nav: { howTo: 'Como usar', startApp: 'Abrir App' },
     hero: {
-      pwaBadge: 'Pronto para PWA: Experiência instantânea no navegador',
-      title: 'A refeição fitness definitiva é',
-      titleAccent: 'O "Hot Pot".',
-      subtitle: 'O famoso "Commit Pot" do Instagram agora é um app. Cálculo, compras e culinária, tudo no seu smartphone.',
+      pwaBadge: '',
+      title: 'Você pode treinar duro.',
+      titleAccent: 'Mas o controle da dieta é a parte mais difícil...',
+      subtitle: `Para todos os praticantes com essas dificuldades.
+Commit Pot é um app de suporte alimentar com IA.`,
       ctaStart: 'Começar grátis agora',
-      ctaHowTo: 'Ver como funciona'
+      ctaHowTo: 'Ver como funciona',
+      ctaWeb: 'Clique aqui para a versão do navegador da Web'
     },
     calc: {
       title: 'Calculadora PFC Rápida',
@@ -446,12 +460,14 @@ export const translations: Record<Language, any> = {
   ko: {
     nav: { howTo: '사용법', startApp: '앱 실행' },
     hero: {
-      pwaBadge: 'PWA 지원: 브라우저에서 바로 체험',
-      title: '최고의 피트니스 식단은',
-      titleAccent: '바로 "전골"입니다.',
-      subtitle: '인스타그램에서 화제가 된 "커밋 팟"이 드디어 앱으로 출시. 계산, 쇼핑, 조리까지 스마트폰 하나로 해결하세요.',
+      pwaBadge: '',
+      title: '운동은 열심히 할 수 있다.',
+      titleAccent: '하지만 식단 관리가 제일 어렵다...',
+      subtitle: `이런 고민을 가진 모든 분들을 위해.
+Commit Pot은 AI 활용 식단 관리 앱입니다.`,
       ctaStart: '지금 무료로 시작하기',
-      ctaHowTo: '사용법 보기'
+      ctaHowTo: '사용법 보기',
+      ctaWeb: '웹 브라우저 버전은 여기를 클릭하세요'
     },
     calc: {
       title: 'PFC 빠른 계산기',
@@ -509,12 +525,14 @@ export const translations: Record<Language, any> = {
   zh: {
     nav: { howTo: '使用方法', startApp: '启动 Web 版' },
     hero: {
-      pwaBadge: '支持 PWA：浏览器即刻体验',
-      title: '终极健身餐，',
-      titleAccent: '非“火锅”莫属。',
-      subtitle: 'Instagram 热门的“Commit Pot”终于应用化。计算、采购、烹饪，全部在手机上完成。',
+      pwaBadge: '',
+      title: '训练可以坚持，',
+      titleAccent: '但饮食管理是最难的……',
+      subtitle: `致所有有此类烦恼的朋友。
+Commit Pot 是一款AI智能饮食支持App.`,
       ctaStart: '立即免费开始',
-      ctaHowTo: '查看使用方法'
+      ctaHowTo: '查看使用方法',
+      ctaWeb: '点击此处使用 Web 浏览器版本'
     },
     calc: {
       title: 'PFC 快速计算器',
