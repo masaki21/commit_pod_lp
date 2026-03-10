@@ -215,7 +215,8 @@ const QuickCalculator = ({ t, lang }: { t: any, lang: Language }) => {
                 <Smartphone size={18} /> App Store
               </a>
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.masakiomae.commitpot"
+                target="_blank" rel="noopener noreferrer"
                 className="flex-1 bg-slate-900 border-2 border-slate-800 text-white font-black py-3 rounded-xl flex items-center justify-center gap-2 hover:border-green-400 hover:scale-105 transition-all shadow-lg"
               >
                 <Smartphone size={18} /> Google Play
@@ -334,7 +335,8 @@ const App: React.FC = () => {
                 <span className="text-[10px] font-black tracking-wider">iOS</span>
               </a>
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.masakiomae.commitpot"
+                target="_blank" rel="noopener noreferrer"
                 className="bg-slate-900 hover:bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 transition-transform hover:-translate-y-0.5"
               >
                 <Smartphone size={16} />
@@ -398,7 +400,8 @@ const App: React.FC = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="https://play.google.com/store/apps/details?id=com.masakiomae.commitpot"
+                  target="_blank" rel="noopener noreferrer"
                   className="w-full sm:w-auto bg-slate-900 border-2 border-slate-800 px-6 py-3 rounded-2xl flex items-center gap-3 hover:scale-105 hover:border-green-400 transition-all shadow-xl group"
                 >
                   <Smartphone className="text-white group-hover:text-green-400 transition-colors" size={32} />
@@ -509,7 +512,8 @@ const App: React.FC = () => {
               </a>
 
               <a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.masakiomae.commitpot"
+                target="_blank" rel="noopener noreferrer"
                 className="w-full max-w-xs bg-slate-900 border-2 border-slate-800 px-6 py-4 rounded-2xl flex items-center gap-4 hover:scale-105 hover:border-green-400 transition-all shadow-2xl group"
               >
                 <Smartphone className="text-white group-hover:text-green-400 transition-colors" size={36} />
@@ -577,14 +581,24 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Floating CTA for Mobile */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full px-6 md:hidden z-[90]">
-        <button
-          onClick={() => handleStartApp('mobile_floating_cta')}
-          className="w-full bg-red-500 text-white font-black py-5 rounded-2xl shadow-[0_10px_30px_rgba(239,68,68,0.4)] flex items-center justify-center gap-2 text-lg active:scale-95 transition-transform"
-        >
-          {t.calc.pwaCta} <ArrowRight size={20} />
-        </button>
+      {/* Floating CTA for Mobile (App Stores) */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full px-4 md:hidden z-[90]">
+        <div className="flex gap-2">
+          <a
+            href="https://apps.apple.com/us/app/commitpot/id6758933531"
+            target="_blank" rel="noopener noreferrer"
+            className="flex-1 bg-slate-900 border-2 border-slate-800 text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.4)] active:scale-95 transition-transform"
+          >
+            <Smartphone size={20} /> App Store
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.masakiomae.commitpot"
+            target="_blank" rel="noopener noreferrer"
+            className="flex-1 bg-slate-900 border-2 border-slate-800 text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(0,0,0,0.4)] active:scale-95 transition-transform"
+          >
+            <Smartphone size={20} /> Google Play
+          </a>
+        </div>
       </div>
 
       {/* --- Modals --- */}
@@ -620,7 +634,8 @@ const App: React.FC = () => {
               <Smartphone size={20} /> App Store
             </a>
             <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.masakiomae.commitpot"
+              target="_blank" rel="noopener noreferrer"
               className="w-full bg-slate-900 border-2 border-slate-800 text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 hover:border-green-400 hover:scale-105 transition-all shadow-lg text-lg"
             >
               <Smartphone size={20} /> Google Play
